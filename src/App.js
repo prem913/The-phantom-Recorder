@@ -1,5 +1,5 @@
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import {Web3} from "web3"
@@ -11,8 +11,24 @@ import Forms from "./components/Form/Forms";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
+const initialState = {
+  email : "",
+  mobNo: "",
+  fname: "",
+  lname: "",
+  city : "",
+  district: "",
+  state: "",
+  pinCode: null,
+  date: null,
+  bloodGroup: "",
+  gender: "",
+  health_issues : ""
+
+}
 
 function App() {
+  const [value, setValue] = useState(initialState);
   const [contract,setContract] = useState(null)
   const [hashvalue,setHashValue] = useState(null)
   const [provider,setProvider] = useState(null)
@@ -42,6 +58,22 @@ function App() {
     provider.enable();
   },[])
   
+  const handleSubmit = async(data)=>{
+    const stringified = JSON.stringify(data)
+    const hash = await addtoIPFS(stringified)
+    console.log("data hash",hash)
+    const transactionResponse = await contract.storeHash(hash)
+    console.log(transactionResponse)
+    await listentotx(transactionResponse,provider)
+  }
+  const getDetails = async()=>{
+    const transactionResponse = await contract.retrieveHash();
+    console.log(transactionResponse) //ipfs hash
+    const parsedData = JSON.parse(await getFromIPFS(transactionResponse))
+    console.log('parsed data', parsedData)
+    setValue(parsedData)
+    // await listentotx(transactionResponse, provider)
+  }
   return (
     <div className="App">
       <button onClick={()=>{
@@ -80,7 +112,7 @@ function App() {
       <Navbar />
       <Home />
       <Content />
-      <Forms />
+      <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} />
       {/* <Teams /> */}
     </div>
   );
