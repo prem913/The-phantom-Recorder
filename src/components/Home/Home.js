@@ -14,13 +14,18 @@ const Home = () => {
       <img src={ThreeD_Face_Animation} alt="" data-aos="zoom-in-down" />
       <div className="home_content" data-aos="fade-up">
         <h1>
-          Electronic <span>Health Record</span>
+          Electronic <span>Health Recorder</span>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          necessitatibus vero ex, quae reiciendis obcaecati ab sint omnis,
-          provident iste voluptatum adipisci impedit ad. Voluptatibus harum, est
-          rem sapiente libero dignissimos sequi corrupti maiores?.{" "}
+          An electronic health record (EHR) contains highly sensitive and
+          critical data related to patients that is shared among multiple
+          facilities and agencies for effective diagnosis and treatment. Types
+          of data, an EHR typically includes: 1. Contact information 2.
+          Information about visits to healthcare professionals 3. Allergies 4.
+          Insurance information 5. Family history 6. Immunization status 7.
+          Information about any conditions or diseases 8. A list of medications
+          9. Records of hospitalization 10. Information about any surgeries or
+          procedures performed. .{" "}
         </p>
         <Link to="/recognition">
           <div className="button">Start</div>

@@ -1,0 +1,357 @@
+.content {
+    padding: 3rem;
+}
+
+.objective {
+    width: 100%;
+    color: var(--slate);
+    font-family: var(--font-sans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.objectiveWrapper>h1 {
+    color: var(--green);
+    font-family: var(--font-mono);
+    display: flex;
+
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.objectiveWrapper>h1::after {
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+.objectiveText {
+    box-sizing: border-box;
+    padding: 3rem;
+    padding-left: 0rem;
+}
+
+.objectiveText>p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.objective_img {
+    position: relative;
+    z-index: 200;
+}
+
+.objective_img>img {
+    width: 80%;
+}
+
+/* existing work   */
+
+/* .existing_work_wrapper 
+{
+    margin-top: 10rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.existing_work {
+    width: 50%;
+    color: var(--slate);
+    font-family: var(--font-sans);
+    
+}
+.existing_work > h1{
+    color: var(--green);
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    
+}
+.existing_work > h1::after{
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+.existing_work > p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+} */
+
+
+
+
+.existing_work {
+    width: 100%;
+    color: var(--slate);
+    font-family: var(--font-sans);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+
+}
+
+.wrapper {
+    margin-top: 4rem;
+}
+
+.wrapper>h1 {
+    color: var(--green);
+    font-family: var(--font-mono);
+    display: flex;
+
+    /* justify-content: center; */
+    align-items: center;
+
+
+}
+
+.existing_img {
+    width: 70%;
+}
+
+.existing_img>img {
+    width: 100%;
+    filter: brightness(0.3);
+}
+
+.existing_work_text {
+    padding: 2rem;
+
+}
+
+.wrapper>h1::after {
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+.wrapper>p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+
+/* current Technolgo Raipur  */
+
+
+
+
+.tech_gap {
+    width: 100%;
+    color: var(--slate);
+    font-family: var(--font-sans);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+}
+
+.tech_text {
+    padding-right: 5rem;
+}
+
+.tech_img {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech_img>img {
+    width: 55%;
+}
+
+.tech_gap>h1 {
+    color: var(--green);
+    font-family: var(--font-mono);
+    display: flex;
+
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.tech_gap>h1::after {
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+.tech_gap>p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* methodology css  */
+
+
+
+
+.methodology {
+    width: 100%;
+    color: var(--slate);
+    font-family: var(--font-sans);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+
+.methodology_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.methodology_img>img {
+    width: 70%;
+}
+
+.methodology>h1 {
+    color: var(--green);
+    font-family: var(--font-mono);
+    display: flex;
+
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.methodology_text {
+    padding: 3rem;
+    padding-left: 0;
+}
+
+.methodology>h1::after {
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+.methodology>p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.wrapper {
+    /* margin-top: 1rem; */
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: center; */
+}
+
+
+@media screen and (max-width : 1053px) {
+    .tech_img>img {
+        width: 55%;
+    }
+
+    .tech_img {
+        width: 80%;
+
+    }
+
+    .methodology {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width : 800px) {
+    .tech_gap {
+        flex-direction: column;
+    }
+
+    .tech_text {
+        margin-bottom: 4rem;
+        padding: 0;
+    }
+
+    .existing_work {
+        flex-direction: column;
+    }
+
+    .existing_work_text {
+        padding: 0;
+        margin-bottom: 4rem;
+    }
+
+    .methodology_img>img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .objective {
+        flex-direction: column;
+    }
+
+    .objective_img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+
+    .objectiveText {
+        padding: 1rem;
+        padding-left: 0;
+    }
+
+    .methodology {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .tech_gap {
+        width: 100%;
+        margin-top: 5rem;
+
+    }
+
+    .existing_work {
+        width: 100%;
+        margin-top: 0rem;
+    }
+
+    .objective {
+        width: 100%;
+        margin-top: 0rem;
+    }
+
+    .wrapper {
+        margin-top: 3rem;
+    }
+
+    .methodology_text {
+        padding: 0;
+    }
+}

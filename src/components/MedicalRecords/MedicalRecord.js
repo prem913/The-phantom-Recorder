@@ -104,7 +104,7 @@ const MedicalRecord = () => {
           </p>
         </div>
       </div>
-      ); };
+      );
     </div>
   );
 };
