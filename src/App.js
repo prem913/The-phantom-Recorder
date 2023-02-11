@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
@@ -5,6 +6,12 @@ import {Web3} from "web3"
 import {ethers} from 'ethers'
 import { abi,contractaddress } from './constants';
 import { addtoIPFS, getFromIPFS } from './ipfs';
+import Content from "./components/content/Content";
+import Forms from "./components/Form/Forms";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Teams from "./components/Teams/Teams";
+
 function App() {
   const [contract,setContract] = useState(null)
   const [hashvalue,setHashValue] = useState(null)
@@ -70,6 +77,11 @@ function App() {
       }}>
           getfile
       </button>
+      <Navbar />
+      <Home />
+      <Content />
+      <Forms />
+      {/* <Teams /> */}
     </div>
   );
 }
