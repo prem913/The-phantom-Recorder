@@ -1,0 +1,79 @@
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    padding: 2rem 0;
+}
+.form_inner{
+    width: 70%;
+}
+
+.frow{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}
+
+.frow .css-10botns-MuiInputBase-input-MuiFilledInput-input{
+    width: 30vw;
+    
+}
+
+.form_heading{
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form_heading::before{
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
+}
+.form_heading::after{
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+
+
+.frow .css-dmmspl-MuiFormGroup-root{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* personal form css  */
+
+.curstom_textarea{
+    margin: 1rem;
+
+}
+
+.form_inner .curstom_textarea textarea {
+    width: 100%;
+    height: 40vh;
+
+}
+
+.cust_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3rem;
+}

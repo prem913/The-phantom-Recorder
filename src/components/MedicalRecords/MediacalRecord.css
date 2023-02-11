@@ -1,0 +1,242 @@
+#Profile {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 6rem;
+    /* background-color: red; */
+}
+
+.innerProfile {
+    padding: 2rem 2rem;
+    border: 2px solid #3E78D8;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.profileImg {
+    width: 25vw;
+    height: 25%;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-left: 20px;
+}
+
+
+
+.profileHeading {
+    text-align: center;
+}
+
+
+
+.contentBasicInfo {
+    width: 100%;
+}
+
+.space {
+    margin-right: 3rem;
+}
+
+.dflex {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+
+.contentBasicInfoText {
+    margin-top: 4px;
+    text-align: left;
+    padding: 0 3rem;
+}
+
+.key {
+    margin-right: 10px;
+}
+
+.hline {
+
+    height: 1px;
+    background-color: #3E78D8;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+
+.profileHeading {
+    padding-left: 4px;
+    /* margin-bottom: 4px; */
+}
+
+
+
+/* contact information  */
+
+
+
+.contentContactInfoText {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    text-align: justify;
+}
+
+.text_justify {
+    /* text-align: justify;
+    text-justify: inter-word; */
+
+    word-break: break-all;
+}
+
+.contentBasicInfoText {
+    text-align: left;
+
+}
+
+.personalInfoText {
+    padding: 0 3rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pb_3 {
+    padding-bottom: 3rem;
+}
+
+
+@media screen and (min-width: 480px) {
+    .profileImg {
+        width: 20vw;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .profileImg {
+        width: 16vw;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .profileImg {
+        width: 12vw;
+    }
+
+
+}
+
+@media screen and (min-width: 985px) {
+    .profileImg {
+        width: 7rem;
+    }
+
+    #Profile {
+        padding-left: 25vw;
+        padding-right: 25vw;
+    }
+}
+
+/* .contentBasicInfo{
+    
+    margin-top: 2rem;
+    display: flex;
+} */
+
+
+@media screen and (max-width : 400px) {
+    .contentBasicInfo {
+        flex-direction: column-reverse;
+    }
+
+    .profileImg {
+        margin-bottom: 2rem;
+        margin-left: 0;
+    }
+
+    #cemail {
+        width: 130%;
+        overflow-x: scroll;
+
+    }
+
+    .personalInfoText {
+        padding-right: 2rem;
+
+    }
+
+    .contentContactInfoText .value {
+        width: 30%;
+
+    }
+
+}
+
+@media screen and (max-width: 438px) {
+
+    .contentBasicInfoText {
+        padding: 0 1rem;
+    }
+
+    .personalInfoText {
+        padding: 0 1rem;
+    }
+
+    .contentContactInfoText {
+        padding: 0 1rem;
+    }
+
+    .space {
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .contentBasicInfoText {
+        padding: 0rem;
+    }
+
+    .personalInfoText {
+        padding: 0rem;
+    }
+
+    .contentContactInfoText {
+        padding: 0rem;
+    }
+
+    .space {
+        margin-right: 1rem;
+    }
+
+    .innerProfile {
+        padding: 2rem 1rem;
+    }
+}
+
+.editInfo {
+    text-align: center;
+    margin-top: 3rem;
+
+}
+
+
+/* #address{
+    width: 130%;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+}
+#phone {
+    width: 130%;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+} */
