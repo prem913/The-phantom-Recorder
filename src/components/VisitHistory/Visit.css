@@ -1,0 +1,29 @@
+
+.visitHistories {
+    padding: 3rem;
+}
+
+.visitHistories>h1{
+    color: var(--green);
+    font-family: var(--font-mono);
+    display: flex;
+
+    /* justify-content: center; */
+    align-items: center;
+
+}
+.visitHistories>h1::after{
+    content: '';
+    display: block;
+    background-color: var(--green);
+    width: 10rem;
+    height: 3px;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+}
+
+
+
+.MuiTableRow-head > th {
+    background-color: #A997DF;;
+}

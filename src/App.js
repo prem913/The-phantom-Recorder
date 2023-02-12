@@ -10,6 +10,7 @@ import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
 import Profile from "./components/profile/Profile";
+import VisitHistories from "./components/VisitHistory/VisitHistories";
 
 function App() {
   const [contract, setContract] = useState(null);
@@ -93,6 +94,7 @@ function App() {
       <Content />
       <Forms />
       <Profile />
+      <VisitHistories />
       {/* <Teams /> */}
     </div>
   );
