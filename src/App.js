@@ -14,7 +14,7 @@ import VisitHistories from "./components/VisitHistory/VisitHistories";
 import VisitPopup from "./components/VisitHistory/VisitPopup";
 import Info from "./components/ShowInfo/Info";
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Form, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   const [contract, setContract] = useState(null);
@@ -45,6 +45,8 @@ function App() {
     const provider = window.ethereum;
     provider.enable();
   }, []);
+
+  const [showPopup, setShowPopup] = useState(true);
 
   return (
     <div className="App">
@@ -112,6 +114,37 @@ function App() {
               <Home />
               <Content />
               <Teams />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/form"
+          element={
+            <>
+              <Navbar />
+              <Forms />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/profile"
+          element={
+            <>
+              <Navbar />
+              <Profile />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/visit_history"
+          element={
+            <>
+              <Navbar />
+              <VisitHistories />
+              <VisitPopup showPopup={showPopup} setShowPopup={setShowPopup} />
             </>
           }
         />

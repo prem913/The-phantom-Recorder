@@ -1,6 +1,7 @@
 
 .visitHistories {
     padding: 3rem;
+
 }
 
 .visitHistories>h1{
@@ -10,6 +11,7 @@
 
     /* justify-content: center; */
     align-items: center;
+    margin-bottom: 1rem;
 
 }
 .visitHistories>h1::after{
@@ -50,6 +52,7 @@
     padding: 1rem;
     font-family: sans-serif;
     font-size: 1.1rem;
+    padding-top: 4rem;
 }
 
 .visit_popup_head{
@@ -82,3 +85,14 @@
     z-index: 100;
 }
 
+
+.crossBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.visit_popup_wrapper_active {
+    opacity: 0;
+    z-index: -1;
+}
