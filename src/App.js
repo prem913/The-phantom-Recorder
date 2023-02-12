@@ -33,7 +33,6 @@ const initialState = {
   health_issues: "Lorem ipsum dolor sitmet consectetur adipisicing elit. ",
 };
 
-
 function App() {
   const [value, setValue] = useState(initialState);
   const [contract, setContract] = useState(null);
@@ -185,7 +184,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Info data={value} />
+              <Info />
               <Profile />
             </>
           }
@@ -206,10 +205,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <VisitHistories
-                showPopup={showPopup}
-                setShowPopup={setShowPopup}
-              />
+              <VisitHistories />
               <VisitPopup showPopup={showPopup} setShowPopup={setShowPopup} />
             </>
           }
@@ -217,11 +213,7 @@ function App() {
       </Routes>
       {/* <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} /> */}
       {/* <Teams /> */}
-<<<<<<< HEAD
       <Accessmgnmt data = {value} provider = {provider} contract = {contract} />
-=======
-      <Accessmgnmt provider={provider} contract={contract} />
->>>>>>> 3feb88ca735563207d59abf8b28d955b1e3a2985
     </div>
   );
 }
