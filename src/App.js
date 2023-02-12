@@ -46,7 +46,7 @@ function App() {
     provider.enable();
   }, []);
 
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div className="App">
@@ -95,15 +95,7 @@ function App() {
       >
         getfile
       </button>
-      {/* <Navbar />
-      <Home />
-      <Content />
-      <Forms />
-      <Profile />
-      <VisitHistories /> */}
-      {/* <VisitPopup /> */}
-      {/* <Teams /> */}
-      {/* <Info /> */}
+
       <Routes>
         <Route
           exact
@@ -143,7 +135,10 @@ function App() {
           element={
             <>
               <Navbar />
-              <VisitHistories />
+              <VisitHistories
+                showPopup={showPopup}
+                setShowPopup={setShowPopup}
+              />
               <VisitPopup showPopup={showPopup} setShowPopup={setShowPopup} />
             </>
           }
