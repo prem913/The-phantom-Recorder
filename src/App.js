@@ -35,6 +35,7 @@ const initialState = {
 }
 
 
+
 function App() {
   const [value, setValue] = useState(initialState);
   const [contract, setContract] = useState(null);
@@ -190,7 +191,7 @@ function App() {
       </Routes>
       {/* <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} /> */}
       {/* <Teams /> */}
-      <Accessmgnmt provider = {provider} contract = {contract} />
+      <Accessmgnmt data = {value} provider = {provider} contract = {contract} />
     </div>
   );
 }

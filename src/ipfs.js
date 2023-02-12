@@ -37,6 +37,29 @@ export const addtoIPFS = async (data) => {
     return cid;
 }
 
+// export const addtoIPFSen = async (data,encryptionKey) => {
+//     const ipfs = await create({ host: '127.0.0.1', port: 5002, protocol: 'http' });
+//     console.log("request to add to ipfs", data);
+
+//     //encrypt data 
+//     const encryptedData = CryptoJS.ED25519.encrypt(message, encryptionKey, key).toString();
+
+//     console.log("encrypted data", encryptedData)
+
+
+
+
+
+
+//     // const json = JSON.stringify(data)
+//     // console.log("send to ipfs", json)
+//     const buffer = Buffer.from(encryptedData);
+//     const result = await ipfs.add({ path: "report1.json", content: buffer });
+//     const cid = result.cid.toString()
+//     console.log("result of ipfs addtoipfs", cid);
+//     return cid;
+// }
+
 
 async function getFromIPFS(hash) {
     const ipfs = await create({ host: '127.0.0.1', port: 5002, protocol: 'http' });
@@ -61,6 +84,30 @@ async function getFromIPFS(hash) {
     console.log("decrypted data", decryptedData)
     return decryptedData
 }
+
+// async function getFromIPFSen(hash,privatekey) {
+//     const ipfs = await create({ host: '127.0.0.1', port: 5002, protocol: 'http' });
+//     // const client = makeStorageClient()
+//     // console.log(await ipfs.get(hash))
+//     // console.log(ipfs)async function docat() {
+//     let itr = ipfs.cat(hash)
+//     let resultobj = {}
+//     for await (const result of itr) {
+//         console.log("retrieved data", result)
+//         const raw = Buffer.from(result).toString('utf8')
+//         // const str = JSON.parse(raw)
+//         console.log("string: ", raw)
+//         resultobj = raw
+//     } // return str;
+//     //   const file = await ipfs.cat(hash);
+//     //   const json = file.toString();
+//     //   return json;
+    
+//     const decryptedData = crypto.ED25519.decrypt(encrypted, privatekey, key).toString();
+
+//     console.log("decrypted data", decryptedData)
+//     return decryptedData
+// }
 
 var utf8ArrayToStr = (function () {
     var charCache = new Array(128);  // Preallocate the cache for the common single byte chars
@@ -99,6 +146,7 @@ var utf8ArrayToStr = (function () {
 export { getFromIPFS }
 
 
+
 const getDataFromLocalStorage = () => {
     const data = localStorage.getItem("secrets")
     if (data) {
@@ -111,3 +159,14 @@ const setDataToLocalStorage = (data) => {
     const json = JSON.stringify(data)
     localStorage.setItem("secrets",json)
 }
+
+const generateKeyPair = ()=>{
+    var key = crypto.lib.WordArray.random(256/8);
+    
+    var pair = crypto.ED25519.generateKeyPair();
+
+    console.log(pair,key);
+
+}
+
+// console.log(generateKeyPair());
