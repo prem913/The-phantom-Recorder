@@ -19,6 +19,7 @@ const Personal_form = (props) => {
               id="filled-basic"
               label="First Name"
               variant="filled"
+              value={props.value.fname}
               onChange={(e) =>
                 props.setValue({ ...props.value, fname: e.target.value })
               }
