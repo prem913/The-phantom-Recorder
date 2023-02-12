@@ -5,14 +5,15 @@ import { ethers } from "ethers";
 import { abi, contractaddress } from "./constants";
 import { addtoIPFS, getFromIPFS } from "./ipfs";
 import Content from "./components/content/Content";
-import Forms from "./components/Form/Forms";
 import Home from "./components/Home/Home";
+import Forms from "./components/Form/Forms.js";
 import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
 import Profile from "./components/profile/Profile";
 import VisitHistories from "./components/VisitHistory/VisitHistories";
 import VisitPopup from "./components/VisitHistory/VisitPopup";
 import Info from "./components/ShowInfo/Info";
+import Medication from "./components/Medication/Medication";
 
 import { Form, Navigate, Route, Routes } from "react-router-dom";
 
@@ -126,6 +127,16 @@ function App() {
             <>
               <Navbar />
               <Profile />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/medication"
+          element={
+            <>
+              <Navbar />
+              <Medication />
             </>
           }
         />
