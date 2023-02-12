@@ -1,4 +1,4 @@
-export const abi = [
+export const abi2 = [
     {
         "inputs": [],
         "name": "retrieveHash",
@@ -27,4 +27,114 @@ export const abi = [
     }
 ]
 
-export const contractaddress = "0x7bc8F8d7d49D8cf45adD49246B598ED6017ef0df"
+export const abi = [
+    {
+        "inputs": [],
+        "name": "getDocUsers",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "key",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "value",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct IPFS.Data[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getDoctors",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "key",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "value",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct IPFS.Data[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "docaddr",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "hash",
+                "type": "string"
+            }
+        ],
+        "name": "giveAccesstoDoc",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "pk",
+                "type": "string"
+            }
+        ],
+        "name": "registerDoctor",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "retrieveHash",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "hash",
+                "type": "string"
+            }
+        ],
+        "name": "storeHash",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
+
+export const contractaddress = "0xF9CA42b639000129e9bdD1F9a686dADFc9B6ECD0"
