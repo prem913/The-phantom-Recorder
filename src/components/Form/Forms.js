@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import Contact_Form from "./Contact_Form";
 import Personal_form from "./Personal_form";
+import "./Form.css"
 
 
 const Forms = ({handleSubmit,getDetails,value,setValue}) => {

@@ -28,7 +28,7 @@ const Home = () => {
           procedures performed. .{" "}
         </p>
         <Link to="/recognition">
-          <div className="button">Start</div>
+          <div className="button">GET RECORD</div>
         </Link>
       </div>
     </div>

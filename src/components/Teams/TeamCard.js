@@ -62,7 +62,10 @@ const TeamCard = () => {
               <span>Name : </span> <span>T. Prudhvi Kumar Reddy </span> <br />
               <span>Branch : </span> <span>Electrical</span> <br />
               <span style={{ color: "var(--green)" }}>Role : </span>{" "}
-              <span style={{ color: "var(--green)" }}>ML Developer</span> <br />
+              <span style={{ color: "var(--green)" }}>
+                Frontend,ML Developer
+              </span>{" "}
+              <br />
             </p>
             <a href="#">Know More</a>
           </div>
@@ -79,7 +82,9 @@ const TeamCard = () => {
               <span>Name : </span> <span>Varun Kumar Reddy </span> <br />
               <span>Branch : </span> <span>Electrical</span> <br />
               <span style={{ color: "var(--green)" }}>Role : </span>{" "}
-              <span style={{ color: "var(--green)" }}>Flutter Developer</span>{" "}
+              <span style={{ color: "var(--green)" }}>
+                Backend,Flutter Developer
+              </span>{" "}
               <br />
             </p>
             <a href="#">Know More</a>

@@ -269,6 +269,8 @@
 }
 
 
+
+
 @media screen and (max-width : 1053px) {
     .tech_img>img {
         width: 55%;
@@ -354,4 +356,149 @@
     .methodology_text {
         padding: 0;
     }
+}
+
+
+/* Tech css  */
+
+.skills {
+    width: 100%;
+    height: fit-content;
+    font-family: var(--font-mono);
+    color: var(--slate);
+    /* padding: 5rem 20rem; */
+}
+
+.white {
+    color: var(--slate);
+}
+
+.skills_heading {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: var(--green);
+}
+
+.skills_heading::before {
+    content: '';
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    margin-right: 1px;
+}
+
+.skills_heading::after {
+    content: '';
+    display: block;
+    width: 30%;
+    margin-left: 1rem;
+
+    height: 0.5px;
+    background: var(--green);
+}
+
+.skillsIcons {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.skillsIcons img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.skill {
+
+    display: inline-block;
+    text-align: center;
+    margin: 2rem 5%;
+    font-size: 0.8rem;
+}
+
+
+/* replace about to skills  */
+
+
+
+@media screen and (max-width: 1500px) {
+   
+}
+
+@media screen and (max-width: 1148px) {
+ 
+}
+
+@media screen and (max-width: 900px) {
+
+    .skills {
+       
+        height: fit-content
+    }
+
+}
+
+@media screen and (max-width: 525px) {
+    .skills_heading::after {
+        width: 30vw;
+    }
+
+    .skills {
+        /* padding: 2rem 1rem; */
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .skillsIcons img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+}
+
+@media screen and (max-width: 365px) {
+
+    .skillsIcons img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .skill h4 {
+        font-size: 0.7rem;
+    }
+
+    .skill {
+        margin: 0.7rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .skills_heading::after {
+        font-size: 1.2rem;
+    }
+
+}
+
+
+.solidity>img {
+    width: 7rem;
+}
+.metamask > img{
+    object-fit: cover;
+}
+
+.ipfs > img { 
+    transform: scale(1.7);
+    background-color: transparent;
+    position: relative;
+    z-index: 0;
+}
+.ipfs h4 {
+    position: relative;
+    z-index: 6;
 }

@@ -77,3 +77,24 @@
     align-items: center;
     padding-bottom: 3rem;
 }
+
+@media screen and (max-width: 950px) {
+    .frow {
+        flex-direction: column;
+    }
+    .frow > div {
+        margin: 1rem 0;
+    }
+
+}
+
+@media screen and (max-width : 640px) {
+    .form_heading {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+
+.all_forms{
+    margin-top: 3rem;
+}
