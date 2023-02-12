@@ -20,20 +20,19 @@ import Medication from "./components/Medication/Medication";
 import { Form, Navigate, Route, Routes } from "react-router-dom";
 import Accessmgnmt from "./components/Accessmgmt";
 const initialState = {
-  email : "",
+  email: "",
   mobNo: "",
   fname: "",
   lname: "",
-  city : "",
+  city: "",
   district: "",
   state: "",
   pinCode: null,
-  date: null,
-  bloodGroup: "",
-  gender: "",
-  health_issues : ""
-
-}
+  date: "21-04-2000",
+  bloodGroup: "A+",
+  gender: "Male",
+  health_issues: "Lorem ipsum dolor sitmet consectetur adipisicing elit. "
+};
 
 
 function App() {
@@ -164,7 +163,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Info />
+              <Info data = {value} />
               <Profile />
             </>
           }
