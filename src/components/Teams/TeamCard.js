@@ -79,7 +79,7 @@ const TeamCard = () => {
               <img src={varunImg} alt="" />
             </h3>
             <p>
-              <span>Name : </span> <span>Varun Kumar Reddy </span> <br />
+              <span>Name : </span> <span>Varun Reddy K </span> <br />
               <span>Branch : </span> <span>Electrical</span> <br />
               <span style={{ color: "var(--green)" }}>Role : </span>{" "}
               <span style={{ color: "var(--green)" }}>

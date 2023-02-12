@@ -1,4 +1,3 @@
-
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Web3 } from "web3";
@@ -31,9 +30,8 @@ const initialState = {
   date: "21-04-2000",
   bloodGroup: "A+",
   gender: "Male",
-  health_issues: "Lorem ipsum dolor sitmet consectetur adipisicing elit. "
+  health_issues: "Lorem ipsum dolor sitmet consectetur adipisicing elit. ",
 };
-
 
 function App() {
   const [value, setValue] = useState(initialState);
@@ -69,23 +67,22 @@ function App() {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  
-  const handleSubmit = async(data)=>{
-    const stringified = JSON.stringify(data)
-    const hash = await addtoIPFS(stringified)
-    console.log("data hash",hash)
-    const transactionResponse = await contract.storeHash(hash)
-    console.log(transactionResponse)
-    await listentotx(transactionResponse,provider)
-  }
-  const getDetails = async()=>{
+  const handleSubmit = async (data) => {
+    const stringified = JSON.stringify(data);
+    const hash = await addtoIPFS(stringified);
+    console.log("data hash", hash);
+    const transactionResponse = await contract.storeHash(hash);
+    console.log(transactionResponse);
+    await listentotx(transactionResponse, provider);
+  };
+  const getDetails = async () => {
     const transactionResponse = await contract.retrieveHash();
-    console.log(transactionResponse) //ipfs hash
-    const parsedData = JSON.parse(await getFromIPFS(transactionResponse))
-    console.log('parsed data', parsedData)
-    setValue(parsedData)
+    console.log(transactionResponse); //ipfs hash
+    const parsedData = JSON.parse(await getFromIPFS(transactionResponse));
+    console.log("parsed data", parsedData);
+    setValue(parsedData);
     // await listentotx(transactionResponse, provider)
-  }
+  };
   return (
     <div className="App">
       <button
@@ -153,7 +150,31 @@ function App() {
           element={
             <>
               <Navbar />
-              <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue}  />
+              <Forms
+                handleSubmit={handleSubmit}
+                getDetails={getDetails}
+                value={value}
+                setValue={setValue}
+              />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/edit_form"
+          // loader: async ({  }) => {
+          //   return fetch(`/api/teams/${}.json`);
+          // },
+          loader={getDetails}
+          element={
+            <>
+              <Navbar />
+              <Forms edit = {true}
+                handleSubmit={handleSubmit}
+                getDetails={getDetails}
+                value={value}
+                setValue={setValue}
+              />
             </>
           }
         />
@@ -163,7 +184,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Info data = {value} />
+              <Info data={value} />
               <Profile />
             </>
           }
@@ -195,7 +216,7 @@ function App() {
       </Routes>
       {/* <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} /> */}
       {/* <Teams /> */}
-      <Accessmgnmt provider = {provider} contract = {contract} />
+      <Accessmgnmt provider={provider} contract={contract} />
     </div>
   );
 }
