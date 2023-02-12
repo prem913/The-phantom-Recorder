@@ -17,12 +17,6 @@ import VisitPopup from "./components/VisitHistory/VisitPopup";
 import Info from "./components/ShowInfo/Info";
 
 import { Form, Navigate, Route, Routes } from "react-router-dom";
-
-function App() {
-  const [contract, setContract] = useState(null);
-  const [hashvalue, setHashValue] = useState(null);
-  const [provider, setProvider] = useState(null);
-
 import Accessmgnmt from "./components/Accessmgmt";
 const initialState = {
   email : "",
@@ -40,11 +34,13 @@ const initialState = {
 
 }
 
+
 function App() {
   const [value, setValue] = useState(initialState);
-  const [contract,setContract] = useState(null)
-  const [hashvalue,setHashValue] = useState(null)
-  const [provider,setProvider] = useState(null)
+  const [contract, setContract] = useState(null);
+  const [hashvalue, setHashValue] = useState(null);
+  const [provider, setProvider] = useState(null);
+
   const report = {
     name: "name",
     age: "23",
@@ -165,7 +161,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Forms />
+              <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue}  />
             </>
           }
         />
@@ -175,6 +171,7 @@ function App() {
           element={
             <>
               <Navbar />
+              <Info />
               <Profile />
             </>
           }
@@ -191,7 +188,7 @@ function App() {
           }
         />
       </Routes>
-      <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} />
+      {/* <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} /> */}
       {/* <Teams /> */}
       <Accessmgnmt provider = {provider} contract = {contract} />
     </div>
