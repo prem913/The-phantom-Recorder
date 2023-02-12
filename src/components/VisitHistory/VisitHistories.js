@@ -12,7 +12,7 @@ import TableRow from "@mui/material/TableRow";
 
 const columns = [
   { id: "sno", label: "S.No.", minWidth: 170 },
-  { id: "name", label: "Name", minWidth: 170 },
+  { id: "hospital_name", label: "Hospital Name", minWidth: 170 },
   { id: "date", label: "Date", minWidth: 170 },
   {
     id: "health_issue",
@@ -21,21 +21,27 @@ const columns = [
     align: "right",
     format: (value) => value.toFixed(2),
   },
+  {
+    id: "purpose",
+    label: "Purpose of Visit",
+    minWidth: 150,
+    align: "right",
+    format: (value) => value.toFixed(2),
+  },
 ];
-function createData(sno, name, health_issue) {
-  return { sno, name, date: Date.now(), health_issue };
+function createData(sno, hospital_name, health_issue, purpose) {
+  return { sno, hospital_name, date: Date.now(), health_issue, purpose };
 }
 
 const rows = [
-  createData(1, "India", "xyz"),
-  createData(2, "China", "dsfs"),
-  createData(3, "Italy", "dushf"),
-  createData(3, "Italy", "dushf"),
-  createData(3, "Italy", "dushf"),
-  createData(3, "Italy", "dushf"),
-  createData(3, "Italy", "dushf"),
-  createData(3, "Italy", "dushf"),
-
+  createData(1, "India", "xyz", "sdfsd"),
+  createData(2, "China", "dsfs", "sdfsd"),
+  createData(3, "Italy", "dushf", "sdfsd"),
+  createData(3, "Italy", "dushf", "sdfsd"),
+  createData(3, "Italy", "dushf", "sdfsd"),
+  createData(3, "Italy", "dushf", "sdfsd"),
+  createData(3, "Italy", "dushf", "sdfsd"),
+  createData(3, "Italy", "dushf", "sdfsd"),
 ];
 const VisitHistories = () => {
   const [page, setPage] = React.useState(0);

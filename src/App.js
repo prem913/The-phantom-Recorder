@@ -11,6 +11,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
 import Profile from "./components/profile/Profile";
 import VisitHistories from "./components/VisitHistory/VisitHistories";
+import VisitPopup from "./components/VisitHistory/VisitPopup";
+import Info from "./components/ShowInfo/Info";
+
+import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   const [contract, setContract] = useState(null);
@@ -89,13 +93,29 @@ function App() {
       >
         getfile
       </button>
-      <Navbar />
+      {/* <Navbar />
       <Home />
       <Content />
       <Forms />
       <Profile />
-      <VisitHistories />
+      <VisitHistories /> */}
+      {/* <VisitPopup /> */}
       {/* <Teams /> */}
+      {/* <Info /> */}
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Home />
+              <Content />
+              <Teams />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
 }
