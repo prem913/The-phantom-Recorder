@@ -43,7 +43,7 @@ const rows = [
   createData(3, "Italy", "dushf", "sdfsd"),
   createData(3, "Italy", "dushf", "sdfsd"),
 ];
-const VisitHistories = () => {
+const VisitHistories = (props) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -86,6 +86,7 @@ const VisitHistories = () => {
                         role="checkbox"
                         tabIndex={-1}
                         key={row.code}
+                        onClick={() => props.setShowPopup(true)}
                       >
                         {columns.map((column) => {
                           const value = row[column.id];
