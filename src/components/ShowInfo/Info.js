@@ -8,27 +8,27 @@ const Info = ({ data }) => {
       <div className="contact_info_wrapper">
         <h1>Contact Information</h1>
         <div className="contact_info">
-          <p>email : {data.email}</p>
-          <p className="fright">phone no : {data.mobNo}</p>
+          <p>email : {data?.email}</p>
+          <p className="fright">phone no : {data?.mobNo}</p>
         </div>
       </div>
 
       <div className="personal_info_wrapper">
         <h1>Personal Information</h1>
         <div className="personalInfo">
-          <p>First Name : {data.fname}</p>
-          <p className="fcenter">Last Name : {data.lname}</p>
-          <p> City : {data.city}</p>
-          <p className="fcenter">district : {data.district}</p>
-          <p>State : {data.state}</p>
-          <p className="fcenter">PinCode : {data.pinCode}</p>
-          <p>date-of-birth : {data.date}</p>
-          <p className="fcenter">Blood Group : {data.bloodGroup}</p>
-          <p>Gender : {data.gender}</p>
+          <p>First Name : {data?.fname}</p>
+          <p className="fcenter">Last Name : {data?.lname}</p>
+          <p> City : {data?.city}</p>
+          <p className="fcenter">district : {data?.district}</p>
+          <p>State : {data?.state}</p>
+          <p className="fcenter">PinCode : {data?.pinCode}</p>
+          <p>date-of-birth : {data?.date}</p>
+          <p className="fcenter">Blood Group : {data?.bloodGroup}</p>
+          <p>Gender : {data?.gender}</p>
           <p className="fcenter">
             {" "}
             <span className="sheading">Health Issues : </span> <br />{" "}
-            <span style={{ marginLeft: "14rem" }}></span> {data.health_issues}
+            <span style={{ marginLeft: "14rem" }}></span> {data?.health_issues}
           </p>
         </div>
       </div>

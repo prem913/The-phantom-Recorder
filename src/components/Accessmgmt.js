@@ -1,4 +1,6 @@
 
+import { Button, TextField, Typography } from '@mui/material';
+import { Container } from '@mui/system';
 import React,{useState} from 'react';
 
 
@@ -27,49 +29,93 @@ const Accessmgnmt = ({provider,contract})=>{
 
     return(
         <>
-        <input type = 'text' value = {regdoc} onChange={async(e)=>{
+        <div style={{
+            display: 'flex',
+            flexDirection:'column',
+            width: '100%',
+            justifyContent:'center',
+            alignItems: 'center',
+            marginTop:'3rem'
+
+        }}>
+        <Typography>Register Doctor</Typography>
+        <TextField value = {regdoc} onChange={async(e)=>{
             setRegdoc(e.target.value)
-        }}/>
-        <button onClick={handleClick}>
+        }}
+        />
+        <Button variant='outlined' onClick={handleClick}>
             register doctor
-        </button>
+        </Button>
+        </div>
+        <div style={{
+            display: 'flex',
+            flexDirection:'column',
+            width: '100%',
+            justifyContent:'center',
+            alignItems: 'center',
+            marginTop:'3rem'
+
+        }}>
+        <Typography>All Doctors</Typography>
         <div>
             Doctors: {JSON.stringify(doctors)}
         </div>
-        <button onClick={async()=>{
+        <Button variant='outlined'  onClick={async()=>{
     const transactionResponse = await contract.getDoctors();
     console.log(transactionResponse) //ipfs hash
             setDoctors(transactionResponse)
         }}>
             get Doctors Information
-        </button>
-        <input type = 'text' value = {accessto} onChange={(e)=>{
+        </Button></div>
+        <div style={{
+            display: 'flex',
+            flexDirection:'column',
+            width: '100%',
+            justifyContent:'center',
+            alignItems: 'center',
+            marginTop:'3rem'
+
+        }}>
+        <Typography>Give access</Typography>
+        <TextField placeholder='Doctor Address' value = {accessto} onChange={(e)=>{
             
             setAccessto(e.target.value)
         }} />
-        <input type = 'text' value = {hash} onChange={(e)=>{
+        <TextField placeholder='Ipfs Hash' value = {hash} onChange={(e)=>{
             
             setHash(e.target.value)
         }} />
-        <button onClick={async()=>{
+        <Button variant='outlined'  onClick={async()=>{
             console.log("accessto",accessto)
             const transactionResponse = await contract.giveAccesstoDoc("0xF9CA42b639000129e9bdD1F9a686dADFc9B6ECD0",hash)
             console.log(transactionResponse)
             await listentotx(transactionResponse,provider)
         }}>
             give access to
-        </button>
-        <div>
-            Users that are given access: {JSON.stringify(users)}
+        </Button>
         </div>
-        <button onClick={async()=>{
+        <div style={{
+            display: 'flex',
+            flexDirection:'column',
+            width: '100%',
+            justifyContent:'center',
+            alignItems: 'center',
+            marginTop:'3rem'
+
+        }}>
+        <Typography>Users that are given access to</Typography>
+        <div>
+            {JSON.stringify(users)}
+        </div>
+        <Button outline="outlined" onClick={async()=>{
     const transactionResponse = await contract.getDocUsers();
     console.log(transactionResponse) //ipfs hash
             
             setUsers(transactionResponse)
         }}>
             get doctor users
-        </button>
+        </Button>
+        </div>
         </>
     )
 }

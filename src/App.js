@@ -18,7 +18,7 @@ import Medication from "./components/Medication/Medication";
 
 import { Form, Navigate, Route, Routes } from "react-router-dom";
 import Accessmgnmt from "./components/Accessmgmt";
-const initialState = {
+export const initialState = {
   email: "",
   mobNo: "",
   fname: "",
@@ -61,8 +61,16 @@ function App() {
     });
   };
   useEffect(() => {
-    const provider = window.ethereum;
-    provider.enable();
+    const abc = async ()=>{
+    const tprovider = window.ethereum;
+    await tprovider.enable();
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      setProvider(provider);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(contractaddress, abi, signer);
+      setContract(contract);
+    }
+    abc()
   }, []);
 
   const [showPopup, setShowPopup] = useState(false);
@@ -165,7 +173,7 @@ function App() {
           // loader: async ({  }) => {
           //   return fetch(`/api/teams/${}.json`);
           // },
-          loader={getDetails}
+          // loader={getDetails}
           element={
             <>
               <Navbar />
@@ -184,7 +192,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Info />
+              <Info data={value} />
               <Profile />
             </>
           }
@@ -207,6 +215,15 @@ function App() {
               <Navbar />
               <VisitHistories />
               <VisitPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/access"
+          element={
+            <>
+      <Accessmgnmt data = {value} provider = {provider} contract = {contract} />
             </>
           }
         />

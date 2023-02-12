@@ -1,12 +1,13 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import Contact_Form from "./Contact_Form";
 import Personal_form from "./Personal_form";
 import "./Form.css"
+import { initialState } from "../../App";
 
 
-const Forms = ({handleSubmit,getDetails,value,setValue}) => {
-  
+const Forms = ({handleSubmit,getDetails,value,setValue,edit}) => {
+  const deployed = useRef(false)
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -15,6 +16,13 @@ const Forms = ({handleSubmit,getDetails,value,setValue}) => {
   const handleGetDetails = () => {
     getDetails()
   }
+
+  // useEffect(()=>{
+    // if(edit === true && !deployed.current) {
+    //   getDetails()
+    //   deployed.current = true
+    // }
+  // })
 
   return (
     <div className="all_forms">
