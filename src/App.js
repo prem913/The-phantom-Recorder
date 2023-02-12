@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Web3 } from "web3";
@@ -9,6 +10,7 @@ import Home from "./components/Home/Home";
 import Forms from "./components/Form/Forms.js";
 import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
+
 import Profile from "./components/profile/Profile";
 import VisitHistories from "./components/VisitHistory/VisitHistories";
 import VisitPopup from "./components/VisitHistory/VisitPopup";
@@ -16,11 +18,30 @@ import Info from "./components/ShowInfo/Info";
 import Medication from "./components/Medication/Medication";
 
 import { Form, Navigate, Route, Routes } from "react-router-dom";
+import Accessmgnmt from "./components/Accessmgmt";
+const initialState = {
+  email : "",
+  mobNo: "",
+  fname: "",
+  lname: "",
+  city : "",
+  district: "",
+  state: "",
+  pinCode: null,
+  date: null,
+  bloodGroup: "",
+  gender: "",
+  health_issues : ""
+
+}
+
 
 function App() {
+  const [value, setValue] = useState(initialState);
   const [contract, setContract] = useState(null);
   const [hashvalue, setHashValue] = useState(null);
   const [provider, setProvider] = useState(null);
+
   const report = {
     name: "name",
     age: "23",
@@ -49,6 +70,23 @@ function App() {
 
   const [showPopup, setShowPopup] = useState(false);
 
+  
+  const handleSubmit = async(data)=>{
+    const stringified = JSON.stringify(data)
+    const hash = await addtoIPFS(stringified)
+    console.log("data hash",hash)
+    const transactionResponse = await contract.storeHash(hash)
+    console.log(transactionResponse)
+    await listentotx(transactionResponse,provider)
+  }
+  const getDetails = async()=>{
+    const transactionResponse = await contract.retrieveHash();
+    console.log(transactionResponse) //ipfs hash
+    const parsedData = JSON.parse(await getFromIPFS(transactionResponse))
+    console.log('parsed data', parsedData)
+    setValue(parsedData)
+    // await listentotx(transactionResponse, provider)
+  }
   return (
     <div className="App">
       <button
@@ -116,7 +154,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Forms />
+              <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue}  />
             </>
           }
         />
@@ -126,6 +164,7 @@ function App() {
           element={
             <>
               <Navbar />
+              <Info />
               <Profile />
             </>
           }
@@ -155,6 +194,9 @@ function App() {
           }
         />
       </Routes>
+      {/* <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} /> */}
+      {/* <Teams /> */}
+      <Accessmgnmt provider = {provider} contract = {contract} />
     </div>
   );
 }
