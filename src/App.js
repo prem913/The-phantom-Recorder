@@ -11,6 +11,7 @@ import Forms from "./components/Form/Forms";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
+import Accessmgnmt from "./components/Accessmgmt";
 const initialState = {
   email : "",
   mobNo: "",
@@ -114,6 +115,7 @@ function App() {
       <Content />
       <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} />
       {/* <Teams /> */}
+      <Accessmgnmt provider = {provider} contract = {contract} />
     </div>
   );
 }
