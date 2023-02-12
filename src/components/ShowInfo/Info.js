@@ -2,37 +2,33 @@ import { Button } from "@mui/material";
 import React from "react";
 import "./Info.css";
 
-const Info = () => {
+const Info = ({ data }) => {
   return (
     <div className="info">
       <div className="contact_info_wrapper">
         <h1>Contact Information</h1>
         <div className="contact_info">
-          <p>email : abc@gmai.com</p>
-          <p className="fright">phone no : 3483749837</p>
+          <p>email : {data.email}</p>
+          <p className="fright">phone no : {data.mobNo}</p>
         </div>
       </div>
 
       <div className="personal_info_wrapper">
         <h1>Personal Information</h1>
         <div className="personalInfo">
-          <p>First Name : Alim</p>
-          <p className="fcenter">Last Name : Khan</p>
-          <p> City : Raipur</p>
-          <p className="fcenter">district : Janjgir</p>
-          <p>State : Chhattisgarah</p>
-          <p className="fcenter">PinCode : 3947974</p>
-          <p>date-of-birth : 21-04-2000</p>
-          <p className="fcenter">Blood Group : A+</p>
-          <p>Gender : Male</p>
+          <p>First Name : {data.fname}</p>
+          <p className="fcenter">Last Name : {data.lname}</p>
+          <p> City : {data.city}</p>
+          <p className="fcenter">district : {data.district}</p>
+          <p>State : {data.state}</p>
+          <p className="fcenter">PinCode : {data.pinCode}</p>
+          <p>date-of-birth : {data.date}</p>
+          <p className="fcenter">Blood Group : {data.bloodGroup}</p>
+          <p>Gender : {data.gender}</p>
           <p className="fcenter">
             {" "}
             <span className="sheading">Health Issues : </span> <br />{" "}
-            <span style={{ marginLeft: "14rem" }}></span> Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Fugiat ad id vel rem dolorem
-            deleniti sed eos odit? Praesentium maxime beatae, repellat voluptas
-            nam aliquam a, tenetur perspiciatis dolore veniam architecto quia
-            esse qui maiores? isf s
+            <span style={{ marginLeft: "14rem" }}></span> {data.health_issues}
           </p>
         </div>
       </div>
