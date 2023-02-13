@@ -1,23 +1,31 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Web3 } from "web3";
-import { ethers } from "ethers";
-import { abi, contractaddress } from "./constants";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { addtoIPFS, getFromIPFS } from "./ipfs";
+import { initializeBlockchain, listentotx, getDetails } from "./utils";
+
+
+//components
 import Content from "./components/content/Content";
 import Home from "./components/Home/Home";
 import Forms from "./components/Form/Forms.js";
 import Navbar from "./components/Navbar/Navbar";
 import Teams from "./components/Teams/Teams";
-
 import Profile from "./components/profile/Profile";
 import VisitHistories from "./components/VisitHistory/VisitHistories";
 import VisitPopup from "./components/VisitHistory/VisitPopup";
 import Info from "./components/ShowInfo/Info";
 import Medication from "./components/Medication/Medication";
-
-import { Form, Navigate, Route, Routes } from "react-router-dom";
 import Accessmgnmt from "./components/Accessmgmt";
+import MedicalRecord from "./components/MedicalRecords/MedicalRecord";
+import SnackBar from "./components/SnackBar";
+import { Button } from "@mui/material";
+import Loginpage from "./components/Loginpage";
+import ThreeD_Face_Animation from "./imgs/home_img.png";
+import { StyledContainer } from "./components/custom";
+
+
+
 export const initialState = {
   email: "",
   mobNo: "",
@@ -29,51 +37,28 @@ export const initialState = {
   pinCode: null,
   date: "21-04-2000",
   bloodGroup: "A+",
-  gender: "Male",
+  gender: "male",
   health_issues: "Lorem ipsum dolor sitmet consectetur adipisicing elit. ",
 };
 
+
+
 function App() {
   const [value, setValue] = useState(initialState);
-  const [contract, setContract] = useState(null);
   const [hashvalue, setHashValue] = useState(null);
-  const [provider, setProvider] = useState(null);
-
-  const report = {
-    name: "name",
-    age: "23",
-  };
-  const handler = (s, hash = "") => {
-    console.log(s);
-    if (s === "success") {
-      setHashValue(hash);
-    }
-  };
-
-  const listentotx = (txres, provider) => {
-    console.log("listentot", txres.hash);
-
-    return new Promise((resolve, reject) => {
-      provider.once(txres.hash, (txrecitp) => {
-        console.log("result", txrecitp);
-        resolve();
-      });
-    });
-  };
-  useEffect(() => {
-    const abc = async ()=>{
-    const tprovider = window.ethereum;
-    await tprovider.enable();
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      setProvider(provider);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(contractaddress, abi, signer);
-      setContract(contract);
-    }
-    abc()
-  }, []);
-
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate()
+  const [snackbar, setSnackbar] = useState({
+    message: "dfd",
+    type: 'info',
+  })
+  const [blockchain, setBlockchain] = useState({
+    provider: null,
+    accounts: [],
+    contract: null,
+    roles: []
+  })
+  const { accounts, provider, contract, roles } = blockchain;
 
   const handleSubmit = async (data) => {
     const stringified = JSON.stringify(data);
@@ -82,18 +67,89 @@ function App() {
     const transactionResponse = await contract.storeHash(hash);
     console.log(transactionResponse);
     await listentotx(transactionResponse, provider);
+    navigate("/")
+
   };
-  const getDetails = async () => {
-    const transactionResponse = await contract.retrieveHash();
-    console.log(transactionResponse); //ipfs hash
-    const parsedData = JSON.parse(await getFromIPFS(transactionResponse));
-    console.log("parsed data", parsedData);
-    setValue(parsedData);
-    // await listentotx(transactionResponse, provider)
+
+  const handler = (s, hash = "") => {
+    console.log(s);
+    if (s === "success") {
+      setHashValue(hash);
+    }
   };
+  const handleOpenSnackBar = (message = "", type = "") => {
+    setSnackbar({
+      message: message,
+      type: type
+    })
+  }
+
+  useEffect(() => {
+    handleOpenSnackBar("Initializing", "info")
+    initializeBlockchain(setBlockchain);
+  }, []);
+  useEffect(() => {
+    const getdetails = async () => {
+      if (roles[0] === "user" && contract) {
+        handleOpenSnackBar("Getting Details", "info");
+        setValue(await getDetails(contract));
+        handleOpenSnackBar("Details fetched", "success");
+      }
+      else if (provider) {
+        handleOpenSnackBar("User not registered", "error");
+      }
+    }
+    getdetails();
+  }, [blockchain])
+
+
+
+
+  useEffect(() => {
+    // window.ethereum.on('disconnect', (error)=>{
+    //   handleOpenSnackBar("User Disconnected","error");
+    // });
+    window.ethereum.on('accountsChanged', (accounts) => {
+      if (accounts.length === 0) {
+        handleOpenSnackBar("Disconnected", "error");
+      }
+      else handleOpenSnackBar("User Account Changed", "info");
+      setBlockchain(b => ({ ...b, accounts: accounts }));
+      // initializeBlockchain()
+    });
+    // return ()=>{
+    // window.ethereum.off("disconnect");
+    // window.ethereum.off("accountChanged");
+    // }
+  }, [])
+  if (accounts.length === 0 || !(roles[0] !== "" || roles[1]!=="")) return (<>
+    <img src={ThreeD_Face_Animation} alt="" style={{
+      position: "fixed",
+      inset: "0",
+      objectFit: 'contain',
+      height: "100%",
+      zIndex: '-1'
+    }} />
+    <Loginpage
+    contract = { contract}
+    provider  = {provider}
+      handleSubmit={handleSubmit}
+      getDetails={getDetails}
+      value={value}
+      setValue={setValue} handleOpenSnackBar={handleOpenSnackBar} setBlockchain={setBlockchain} accounts={accounts} roles={roles} />
+    <SnackBar message={snackbar.message} type={snackbar.type} setOpen={setSnackbar} open={snackbar.message !== ""} />
+  </>)
   return (
     <div className="App">
-      <button
+      <img src={ThreeD_Face_Animation} alt="" style={{
+        position: "fixed",
+        inset: "0",
+        objectFit: 'contain',
+        height: "100%",
+        zIndex: '-1'
+      }} />
+
+      {/* <button
         onClick={() => {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
           setProvider(provider);
@@ -103,8 +159,8 @@ function App() {
         }}
       >
         click
-      </button>
-      <button
+      </button> */}
+      {/* <button
         onClick={async () => {
           const transactionResponse = await contract.storeHash("prem");
           console.log(transactionResponse);
@@ -137,7 +193,7 @@ function App() {
         }}
       >
         getfile
-      </button>
+      </button> */}
 
       <Routes>
         <Route
@@ -177,7 +233,7 @@ function App() {
           element={
             <>
               <Navbar />
-              <Forms edit = {true}
+              <Forms edit={true}
                 handleSubmit={handleSubmit}
                 getDetails={getDetails}
                 value={value}
@@ -193,7 +249,8 @@ function App() {
             <>
               <Navbar />
               <Info data={value} />
-              <Profile />
+              {/* <Profile /> */}
+              {/* <MedicalRecord /> */}
             </>
           }
         />
@@ -223,14 +280,17 @@ function App() {
           path="/access"
           element={
             <>
-      <Accessmgnmt data = {value} provider = {provider} contract = {contract} />
+            <Navbar />
+              <Accessmgnmt value={value} roles={roles} data={value} provider={provider} contract={contract} />
             </>
           }
         />
       </Routes>
       {/* <Forms handleSubmit={handleSubmit} getDetails={getDetails} value={value} setValue={setValue} /> */}
       {/* <Teams /> */}
-      <Accessmgnmt data = {value} provider = {provider} contract = {contract} />
+      {/* <Accessmgnmt data={value} provider={provider} contract={contract} /> */}
+
+      <SnackBar message={snackbar.message} type={snackbar.type} setOpen={setSnackbar} open={snackbar.message !== ""} />
     </div>
   );
 }

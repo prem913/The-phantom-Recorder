@@ -1,8 +1,11 @@
 import { Button } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { StyledButton } from "../custom";
 import "./Info.css";
 
 const Info = ({ data }) => {
+  const navigate = useNavigate()
   return (
     <div className="info">
       <div className="contact_info_wrapper">
@@ -33,7 +36,7 @@ const Info = ({ data }) => {
         </div>
       </div>
       <div className="cust_button">
-        <Button variant="outlined">Edit!!</Button>
+        <StyledButton onClick={()=>navigate("/edit_form")} variant="contained">Edit!!</StyledButton>
       </div>
     </div>
   );

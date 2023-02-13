@@ -1,6 +1,6 @@
-// import React from "react";
+import React from "react";
 
-// const Medication = () => {
+const Medication = () => {
 //   return (
 //     <div className="mediacation">
 //       <h1 className="form_heading">Medication Information</h1>
@@ -130,6 +130,7 @@
 //       </div>
 //     </div>
 //   );
-// };
+    return ""
+};
 
-// export default Medication;
+export default Medication;

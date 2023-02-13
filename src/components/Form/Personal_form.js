@@ -28,6 +28,7 @@ const Personal_form = (props) => {
               id="filled-basic"
               label="Last Name"
               variant="filled"
+              value={props.value.lname}
               onChange={(e) =>
                 props.setValue({ ...props.value, lname: e.target.value })
               }
@@ -38,6 +39,7 @@ const Personal_form = (props) => {
               id="filled-basic"
               label="city"
               variant="filled"
+              value={props.value.city}
               onChange={(e) =>
                 props.setValue({ ...props.value, city: e.target.value })
               }
@@ -46,6 +48,7 @@ const Personal_form = (props) => {
               id="filled-basic"
               label="district"
               variant="filled"
+              value={props.value.district}
               onChange={(e) =>
                 props.setValue({ ...props.value, district: e.target.value })
               }
@@ -56,6 +59,7 @@ const Personal_form = (props) => {
               id="filled-basic"
               label="State"
               variant="filled"
+              value={props.value.state}
               onChange={(e) =>
                 props.setValue({ ...props.value, state: e.target.value })
               }
@@ -65,6 +69,7 @@ const Personal_form = (props) => {
               label="Pin Code"
               variant="filled"
               type="number"
+              value={props.value.pinCode}
               onChange={(e) =>
                 props.setValue({ ...props.value, pinCode: e.target.value })
               }
@@ -81,6 +86,7 @@ const Personal_form = (props) => {
               id="filled-basic"
               label="Blood Group"
               variant="filled"
+              value={props.value.bloodGroup}
               onChange={(e) =>
                 props.setValue({ ...props.value, bloodGroup: e.target.value })
               }
@@ -91,7 +97,10 @@ const Personal_form = (props) => {
               <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
+                value={props.value.gender}
+                onChange = {(e)=>{
+                  props.setValue({...props.value,gender: e.target.value});
+                }}
                 name="radio-buttons-group"
               >
                 <FormControlLabel
@@ -127,6 +136,7 @@ const Personal_form = (props) => {
               aria-label="maximum height"
               placeholder=""
               style={{ width: "100%", height: "40vh" }}
+              value={props.value.health_issues}
               onChange={(e) =>
                 props.setValue({
                   ...props.value,

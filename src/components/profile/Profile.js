@@ -8,10 +8,10 @@ const Profile = () => {
   return (
     <>
       <div>
-        <MetaData title={` Profile`} />
+        {/* <MetaData title={` Profile`} /> */}
 
         <div className="profileContainer">
-          <div class="profileContainer-1">
+          <div className="profileContainer-1">
             <h1>My Profile</h1>
             <img src={tempImg} alt="fsf" />
             <Link to="/me/update"> Edit Profile </Link>

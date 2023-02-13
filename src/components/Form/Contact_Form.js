@@ -13,6 +13,7 @@ const Contact_Form = (props) => {
               id="filled-basic"
               label="Email"
               variant="filled"
+              value = {props.value.email}
               onChange={(e) =>
                 props.setValue({ ...props.value, email: e.target.value })
               }
@@ -21,6 +22,7 @@ const Contact_Form = (props) => {
               id="filled-basic"
               label="Mob No."
               variant="filled"
+              value={props.value.mobNo}
               onChange={(e) =>
                 props.setValue({ ...props.value, mobNo: e.target.value })
               }

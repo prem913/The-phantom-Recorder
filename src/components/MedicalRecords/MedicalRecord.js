@@ -1,6 +1,14 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import "./MediacalRecord.css"
 
 const MedicalRecord = () => {
+  const userData = {
+    details:{
+      dob:"helo",
+      
+    }
+  }
   return (
     <div>
       return (
