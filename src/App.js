@@ -66,6 +66,8 @@ function App() {
     console.log("data hash", hash);
     const transactionResponse = await contract.storeHash(hash);
     console.log(transactionResponse);
+    handleOpenSnackBar("Registered Successfully","success");
+    setBlockchain(b=>({...b,roles:["user",""]}))
     await listentotx(transactionResponse, provider);
     navigate("/")
 
@@ -281,7 +283,7 @@ function App() {
           element={
             <>
             <Navbar />
-              <Accessmgnmt value={value} roles={roles} data={value} provider={provider} contract={contract} />
+              <Accessmgnmt setBlockchain = {setBlockchain} value={value} roles={roles} data={value} provider={provider} contract={contract} />
             </>
           }
         />

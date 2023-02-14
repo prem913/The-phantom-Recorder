@@ -19,10 +19,19 @@ function Loginpage(props) {
     const [popup,setPopup] = useState(false)
 
     const handleRegister = async()=>{
+      try{
       const transactionResponse = await contract.registerDoctor(regdocval);
       console.log(transactionResponse);
+      handleOpenSnackBar("Registered Successfully","success")
       navigate("/access")
+      setDocOpen(false);
+      setBlockchain(b=>({...b,roles:["","doctor"]}))
       await listentotx(transactionResponse, provider);
+      }catch(err){
+        console.log(err);
+        handleOpenSnackBar("An error occurred while Registering","error")
+      }
+      handleOpenSnackBar("Transaction successfully completed for registering","success")
     }
 
     const RegDocComponent = ()=>{
