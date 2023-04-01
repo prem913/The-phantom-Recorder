@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# The Phantom Recoder
+Phantom recorder is a blockchain-based platform for managing medical records and facilitating secure communication between doctors and patients. By leveraging the Ethereum blockchain and smart contracts, Phantom Recorder ensures that only authorized individuals can access and modify medical records, while maintaining privacy and security.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-and has etherium as backend to it
-## Available Scripts
+## Features
+- **Blockchain-based login and registration:** Users can register as either a patient or a doctor, and their wallet address is stored on the Ethereum blockchain via a smart contract.
+- **Encrypted medical record storage:** Medical records are encrypted and stored on the InterPlanetary File System (IPFS), with the key for each file being stored on the blockchain with the respective user's wallet address.
+- **Doctor-patient communication:** Patients can give access to specific doctors to view their medical records by encrypting a copy of the record with the doctor's public key. The doctor can then decrypt the record using their private key on the website.
+- **Future Implementations**
+    - **Telemedicine:** Patients can consult with doctors remotely using video conferencing or chat features.
+    - **Health tracking:** Patients can track their health metrics, such as blood pressure, weight, and activity levels, and share this data with their doctors to inform treatment plans.
+    - **Prescription management:** Patients can view and manage their prescription medications, including dosage, frequency, and refill requests.
+Technologies Used
 
-In the project directory, you can run:
+## Technologies Used
+- **Ethereum blockchain and smart contracts(Solidity)**
+- **InterPlanetary File System (IPFS)**
+- **React.js** for front-end development
+- **Node.js** for back-end development
+- **Ethers.js** for interacting with the Ethereum blockchain
 
-### `npm start`
+## Installation
+To install and run Phantom Recorder, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Clone the repository: ```console
+git clone https://github.com/prem913/The-phantom-Recorder.git
+```
+- Install dependencies: ```console
+npm install
+```
+- Run the application: ```console
+npm start
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contributing
+We welcome contributions from the community! To contribute to Phantom Recorder please follow these guidelines:
 
-### `npm test`
+Fork the repository.
+Create a new branch for your changes: git checkout -b (your branch name)
+Make your changes and commit them: git commit -am 'Add some feature'
+Push to the branch: git push origin [branch name]
+Submit a pull request.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+Phantom Recorder is released under the MIT License.
