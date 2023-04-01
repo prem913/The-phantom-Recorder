@@ -21,15 +21,9 @@ Technologies Used
 ## Installation
 To install and run Phantom Recorder, follow these steps:
 
-- Clone the repository: ```console
-git clone https://github.com/prem913/The-phantom-Recorder.git
-```
-- Install dependencies: ```console
-npm install
-```
-- Run the application: ```console
-npm start
-```
+- Clone the repository: ```git clone https://github.com/prem913/The-phantom-Recorder.git```
+- Install dependencies: ```npm install```
+- Run the application: ```npm start```
 
 ## Contributing
 We welcome contributions from the community! To contribute to Phantom Recorder please follow these guidelines:
